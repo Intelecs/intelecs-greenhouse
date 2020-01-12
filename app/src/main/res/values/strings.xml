@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">IoTGreenHouse</string>
+
+    <string name="device">DEVICES</string>
+
+    <string name="home">HOME</string>
+    <string name="analytics">STATISTICS</string>
+    <string name="notifications">NOTIFICATIONS</string>
+
+    <string name="temperature">TEMPERATURE</string>
+    <string name="moisture">MOISTURE</string>
+    <string name="water_level">WATER LEVEL</string>
+    <string name="cam_coder">STREAM</string>
+
+    <string name="sprinkler">SPRINKLER</string>
+    <string name="water_pump">WATER PUMP</string>
+    <string name="fan">VENTILATION FAN</string>
+
+
+    <string name="sample_temp">24.6</string>
+    <string name="cel_symbol">&#176;C</string>
+
+    <string name="sample_moist">10</string>
+    <string name="moist_symbol">&#x0025;</string>
+
+    <string name="text_on">ON</string>
+    <string name="text_off">OFF</string>
+
+    <string name="sample_level">12</string>
+    <string name="level_symbol">Litres</string>
+    <string name="water_label">Water level </string>
+
+    <string name="daily">DAILY</string>
+    <string name="monthly">MONTHLY</string>
+    <string name="yearly">YEARLY</string>
+
+</resources>

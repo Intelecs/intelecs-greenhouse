@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="font_big">16sp</dimen>
+    <dimen name="font_xbig">24sp</dimen>
+    <dimen name="font_normal">12sp</dimen>
+    <dimen name="font_small">6sp</dimen>
+
+
+    <dimen name="margin_small">8dp</dimen>
+    <dimen name="margin_big">16dp</dimen>
+
+    <dimen name="icon_small">32dp</dimen>
+    <dimen name="icon_big">64dp</dimen>
+
+    <dimen name="progress_height">8dp</dimen>
+    <dimen name="switch_width">60dp</dimen>
+
+    <dimen name="card_radius">4dp</dimen>
+    <dimen name="padding_normal">4dp</dimen>
+
+</resources>
