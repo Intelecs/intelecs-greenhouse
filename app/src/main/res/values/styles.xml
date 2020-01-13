@@ -21,4 +21,10 @@
         <item name="android:textSize">@dimen/font_normal</item>
     </style>
 
+    <style name="ChipTabLayout" parent="Widget.Design.TabLayout">
+        <item name="tabIndicatorColor">@android:color/transparent</item>
+        <item name="tabBackground">@drawable/selector_tab</item>
+        <item name="tabSelectedTextColor">?android:textColorPrimary</item>
+    </style>
+
 </resources>

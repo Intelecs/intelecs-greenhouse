@@ -33,5 +33,6 @@
     <string name="daily">DAILY</string>
     <string name="monthly">MONTHLY</string>
     <string name="yearly">YEARLY</string>
+    <string name="weakly">WEAKLY</string>
 
 </resources>
