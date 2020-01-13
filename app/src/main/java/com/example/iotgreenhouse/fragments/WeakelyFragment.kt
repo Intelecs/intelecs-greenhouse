@@ -41,23 +41,24 @@ class WeakelyFragment: Fragment() {
             .anchor(Anchor.CENTER_BOTTOM)
             .offsetX(0.0)
             .offsetY(5.0)
-            .format("\${%Value}{groupsSeparator: }")
+            .format("{%Value}{groupsSeparator: } ℃")
 
         cartesian.animation(true)
         cartesian.title("Weakly Readings of Temperature")
 
         cartesian.yScale().minimum(0.0)
 
-        cartesian.yAxis(0).labels().format("\${%Value}{groupsSeparator: }")
+        cartesian.yAxis(0).labels().format("℃ {%Value}{groupsSeparator: }")
 
         cartesian.tooltip().positionMode(TooltipPositionMode.POINT)
         cartesian.interactivity().hoverMode(HoverMode.BY_X)
 
         cartesian.xAxis(0).title("Days")
         cartesian.yAxis(0).title("Temperature (in Celsius)")
+        view.weekly_chart.setBackgroundColor("#333131")
         view.weekly_chart.setProgressBar(view.progress_view)
+        view.weekly_chart.setBackgroundColor("#333131")
         view.weekly_chart.setZoomEnabled(true)
-        view.weekly_chart.setBackgroundColor(resources.getColor(R.color.gray))
         view.weekly_chart.setChart(cartesian)
         return view
 
