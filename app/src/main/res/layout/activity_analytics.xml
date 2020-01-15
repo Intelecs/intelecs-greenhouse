@@ -27,7 +27,7 @@
             app:tabIndicatorGravity="center"
             app:tabSelectedTextColor="@color/white"
             app:tabTextColor="@color/white"
-            app:tabPadding="@dimen/margin_small"
+            app:tabContentStart="@dimen/margin_small"
             android:layout_gravity="center"
             android:id="@+id/tabs_holder"
             android:background="@color/gray"
