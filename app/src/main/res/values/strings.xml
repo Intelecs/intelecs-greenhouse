@@ -43,4 +43,12 @@
     <string name="cancel_hint">Cancel</string>
     <string name="back_hint">Back home</string>
 
+    <string name="notification_title">Temperature sensor</string>
+    <string name="notification_message">Temperature has reached 33&#176;C beyond the threshold of 28&#176;C</string>
+    <string name="mark_as_read">Mark as Read</string>
+    <string name="notification_time">12 Jan 2019, 14:30:32</string>
+
+    <string name="please_wait">Please wait &#8230;</string>
+    <string name="not_found">There is not data at the moment</string>
+
 </resources>

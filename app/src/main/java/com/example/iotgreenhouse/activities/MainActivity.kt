@@ -38,7 +38,10 @@ class MainActivity : AppCompatActivity() {
                     val analyticsActivity = Intent(this, AnalyticsActivity::class.java)
                     startActivity(analyticsActivity)
                 }
-                R.id.notifications -> Toast.makeText(applicationContext, "ALERT", Toast.LENGTH_SHORT).show()
+                R.id.notifications -> {
+                    val notificationActivity = Intent(this, NotificationActivity::class.java)
+                    startActivity(notificationActivity)
+                }
                 R.id.home -> Toast.makeText(applicationContext, "HOME", Toast.LENGTH_SHORT).show()
             }
         }
