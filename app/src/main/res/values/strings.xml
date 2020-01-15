@@ -35,4 +35,7 @@
     <string name="yearly">YEARLY</string>
     <string name="weakly">WEAKLY</string>
 
+    <string name="temperature_input">Temperature</string>
+    <string name="moisture_input">Moisture</string>
+
 </resources>

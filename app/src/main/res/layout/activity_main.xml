@@ -7,13 +7,66 @@
     android:background="@color/dark"
     tools:context=".activities.MainActivity">
 
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.2" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.3" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.4" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.65" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.90" />
+
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/temp_holder"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:background="@color/dark"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/guideline4"
+        app:layout_constraintBottom_toTopOf="@id/guideline5">
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline"
@@ -21,7 +74,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_percent=".5" />
-
 
         <TextView
             android:id="@+id/sensor_hint"
@@ -40,7 +92,6 @@
             android:layout_width="@dimen/icon_small"
             android:layout_height="@dimen/icon_small"
             android:layout_marginStart="@dimen/margin_small"
-            android:layout_marginTop="@dimen/margin_small"
             android:src="@drawable/ic_themometer"
             android:tint="@color/ligh_gray"
             app:layout_constraintStart_toStartOf="parent"
@@ -56,20 +107,21 @@
             android:textColor="@color/white"
             android:textSize="@dimen/font_xbig"
             app:layout_constraintStart_toEndOf="@id/guideline"
-            app:layout_constraintTop_toBottomOf="@+id/sensor_hint" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
         <TextView
             android:id="@+id/temp_symbol"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_small"
             android:fontFamily="sans-serif"
             android:text="@string/cel_symbol"
             android:textColor="@color/white"
             android:textSize="@dimen/font_big"
             app:layout_constraintStart_toEndOf="@id/temp_reading"
-            app:layout_constraintTop_toBottomOf="@+id/sensor_hint" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -77,11 +129,11 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/moist_holder"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_small"
+        android:layout_height="0dp"
         android:background="@color/gray"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/temp_holder">
+        app:layout_constraintBottom_toTopOf="@+id/guideline6"
+        app:layout_constraintTop_toBottomOf="@id/guideline5">
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline1"
@@ -108,7 +160,6 @@
             android:layout_width="@dimen/icon_small"
             android:layout_height="@dimen/icon_small"
             android:layout_marginStart="@dimen/margin_small"
-            android:layout_marginTop="@dimen/margin_small"
             android:src="@drawable/ic_raindrops"
             android:tint="@color/ligh_gray"
             app:layout_constraintStart_toStartOf="parent"
@@ -124,20 +175,21 @@
             android:textColor="@color/white"
             android:textSize="@dimen/font_xbig"
             app:layout_constraintStart_toEndOf="@id/guideline1"
-            app:layout_constraintTop_toBottomOf="@+id/moist_hint" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
 
         <TextView
             android:id="@+id/moist_symbol"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_small"
             android:fontFamily="sans-serif"
             android:text="@string/moist_symbol"
             android:textColor="@color/white"
             android:textSize="@dimen/font_big"
             app:layout_constraintStart_toEndOf="@id/moist_reading"
-            app:layout_constraintTop_toBottomOf="@+id/moist_hint" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -146,11 +198,11 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/level_holder"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_small"
+        android:layout_height="0dp"
         android:background="@color/dark"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/moist_holder">
+        app:layout_constraintBottom_toTopOf="@id/guideline7"
+        app:layout_constraintTop_toBottomOf="@+id/guideline6">
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline2"
@@ -177,7 +229,6 @@
             android:layout_width="@dimen/icon_small"
             android:layout_height="@dimen/icon_small"
             android:layout_marginStart="@dimen/margin_small"
-            android:layout_marginTop="@dimen/margin_small"
             android:src="@drawable/ic_pitcher"
             android:tint="@color/ligh_gray"
             app:layout_constraintStart_toStartOf="parent"
@@ -193,7 +244,8 @@
             android:textColor="@color/white"
             android:textSize="@dimen/font_xbig"
             app:layout_constraintStart_toEndOf="@id/guideline2"
-            app:layout_constraintTop_toBottomOf="@+id/level_hint" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
 
         <TextView
@@ -206,16 +258,16 @@
             android:textColor="@color/white"
             android:textSize="@dimen/font_big"
             app:layout_constraintStart_toEndOf="@id/level_reading"
-            app:layout_constraintTop_toBottomOf="@+id/level_hint" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <com.skydoves.progressview.ProgressView
             android:id="@+id/progressView1"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/progress_height"
+            android:layout_height="3dp"
             android:layout_marginStart="@dimen/margin_small"
-            android:layout_marginTop="@dimen/margin_small"
             android:layout_marginEnd="@dimen/margin_small"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="2dp"
             app:layout_constraintTop_toBottomOf="@id/level_icon"
             app:progressView_autoAnimate="true"
             app:progressView_colorBackground="@color/ligh_gray"
@@ -229,25 +281,17 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.5" />
-
-
     <androidx.cardview.widget.CardView
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/guideline3"
-        app:layout_constraintTop_toBottomOf="@id/level_holder"
+        app:layout_constraintTop_toBottomOf="@id/guideline7"
+        app:layout_constraintBottom_toTopOf="@+id/guideline8"
         app:cardBackgroundColor="@color/gray"
         app:cardCornerRadius="@dimen/card_radius"
-        android:id="@+id/fan_card"
         android:layout_margin="@dimen/margin_small"
+        android:id="@+id/fan_card"
         android:layout_width="0dp"
-        android:layout_height="wrap_content">
+        android:layout_height="0dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -281,7 +325,6 @@
                 android:layout_height="@dimen/icon_big"/>
 
             <TextView
-                app:layout_constraintTop_toBottomOf="@+id/fan_icon"
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_marginTop="@dimen/margin_big"
                 android:layout_width="match_parent"
@@ -302,13 +345,14 @@
     <androidx.cardview.widget.CardView
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/guideline3"
-        app:layout_constraintTop_toBottomOf="@id/level_holder"
+        app:layout_constraintTop_toBottomOf="@id/guideline7"
+        app:layout_constraintBottom_toTopOf="@+id/guideline8"
         app:cardBackgroundColor="@color/gray"
         app:cardCornerRadius="@dimen/card_radius"
         android:layout_margin="@dimen/margin_small"
         android:id="@+id/pump_card"
         android:layout_width="0dp"
-        android:layout_height="wrap_content">
+        android:layout_height="0dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -342,7 +386,6 @@
                 android:layout_height="@dimen/icon_big"/>
 
             <TextView
-                app:layout_constraintTop_toBottomOf="@+id/pump_icon"
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_marginTop="@dimen/margin_big"
                 android:layout_width="match_parent"
@@ -361,13 +404,14 @@
     <androidx.cardview.widget.CardView
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/guideline3"
-        app:layout_constraintTop_toBottomOf="@id/fan_card"
+        app:layout_constraintTop_toBottomOf="@id/guideline8"
+        app:layout_constraintBottom_toTopOf="@+id/guideline9"
         app:cardBackgroundColor="@color/gray"
         app:cardCornerRadius="@dimen/card_radius"
         android:layout_margin="@dimen/margin_small"
         android:id="@+id/sprinkler_card"
         android:layout_width="0dp"
-        android:layout_height="wrap_content">
+        android:layout_height="0dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -401,7 +445,6 @@
                 android:layout_height="@dimen/icon_big"/>
 
             <TextView
-                app:layout_constraintTop_toBottomOf="@+id/sprinkler_icon"
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_marginTop="@dimen/margin_big"
                 android:layout_width="match_parent"
@@ -413,20 +456,20 @@
                 android:background="@color/ligh_gray"
                 android:layout_height="wrap_content" />
 
-
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/guideline3"
-        app:layout_constraintTop_toBottomOf="@id/pump_card"
+        app:layout_constraintTop_toBottomOf="@id/guideline8"
+        app:layout_constraintBottom_toTopOf="@+id/guideline9"
         app:cardBackgroundColor="@color/gray"
         app:cardCornerRadius="@dimen/card_radius"
         android:layout_margin="@dimen/margin_small"
         android:id="@+id/stream_card"
         android:layout_width="0dp"
-        android:layout_height="wrap_content">
+        android:layout_height="0dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -435,6 +478,7 @@
             <Switch
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                android:visibility="invisible"
                 android:switchTextAppearance="@style/SwitchTextAppearance"
                 android:theme="@style/Switch_style"
                 android:showText="true"
@@ -460,7 +504,7 @@
                 android:layout_height="@dimen/icon_big"/>
 
             <TextView
-                app:layout_constraintTop_toBottomOf="@+id/stream_icon"
+
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_marginTop="@dimen/margin_big"
                 android:layout_width="match_parent"

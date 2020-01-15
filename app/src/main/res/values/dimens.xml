@@ -5,6 +5,7 @@
     <dimen name="font_normal">12sp</dimen>
     <dimen name="font_small">6sp</dimen>
 
+    <dimen name="input_height">40dp</dimen>
 
     <dimen name="margin_small">8dp</dimen>
     <dimen name="margin_big">16dp</dimen>
