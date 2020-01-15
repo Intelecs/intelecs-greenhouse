@@ -2,10 +2,54 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/dark"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.StreamActivity">
 
+    <android.opengl.GLSurfaceView
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/stream_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <ImageView
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/toggle_camera"
+        android:layout_width="@dimen/icon_small"
+        android:layout_height="@dimen/icon_small"
+        android:contentDescription="@string/back_hint"
+        android:tint="@color/colorPrimary"
+        android:layout_marginStart="@dimen/margin_small"
+        android:layout_marginTop="@dimen/margin_small"
+        android:background="@drawable/ic_left_arrow" />
+
+
+    <TextView
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/live_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="@dimen/margin_small"
+        android:layout_marginTop="@dimen/margin_small"
+        android:background="@drawable/round_corner_red"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="@dimen/font_normal"
+        android:textStyle="bold"
+        tools:text="LIVE" />
+
+    <Button
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/stop_btn"
+        android:text="@string/stop_steam"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/input_height"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

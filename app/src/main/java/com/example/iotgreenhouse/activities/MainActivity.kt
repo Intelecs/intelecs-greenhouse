@@ -32,6 +32,11 @@ class MainActivity : AppCompatActivity() {
             bottomSheetDialog.show()
         }
 
+        stream_card.setOnClickListener {
+            val streamActivity = Intent(this, StreamActivity::class.java)
+            startActivity(streamActivity)
+        }
+
         btn_navigation.setOnItemSelectedListener {
             when (it) {
                 R.id.analytics -> {
