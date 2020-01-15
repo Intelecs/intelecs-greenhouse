@@ -39,7 +39,8 @@
     <string name="moisture_input">Moisture</string>
 
     <string name="threshold_dialog_title">Edit System\'s Threshold values</string>
-    <string name="accept_hint">SAVE</string>
-    <string name="cancel_hint">CANCEL</string>
+    <string name="accept_hint">Save</string>
+    <string name="cancel_hint">Cancel</string>
+    <string name="back_hint">Back home</string>
 
 </resources>
