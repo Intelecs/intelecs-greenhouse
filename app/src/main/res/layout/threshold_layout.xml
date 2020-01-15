@@ -7,8 +7,31 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <LinearLayout
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/dialog_title"
+        android:text="@string/threshold_dialog_title"
+        android:textSize="@dimen/font_big"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:fontFamily="sans-serif-light"
+        android:textStyle="bold"
+        android:textAlignment="center"
         app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <LinearLayout
+        app:layout_constraintTop_toBottomOf="@+id/dialog_title"
+        android:layout_marginTop="@dimen/margin_small"
         android:id="@+id/temp_holder"
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -25,6 +48,7 @@
 
         <EditText
             android:textColor="@color/white"
+            android:padding="@dimen/margin_small"
             android:background="@drawable/text_input"
             android:layout_width="match_parent"
             android:layout_height="@dimen/input_height" />
@@ -50,9 +74,36 @@
         <EditText
             android:textColor="@color/white"
             android:background="@drawable/text_input"
+            android:padding="@dimen/margin_small"
             android:layout_width="match_parent"
             android:layout_height="@dimen/input_height" />
 
     </LinearLayout>
+
+    <Button
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/moist_holder"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:backgroundTint="@color/colorPrimary"
+        android:background="@drawable/btn_style"
+        android:layout_marginTop="@dimen/margin_small"
+        android:layout_marginStart="@dimen/margin_small"
+        android:textColor="@color/white"
+        android:text="@string/accept_hint"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content" />
+
+    <Button
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/moist_holder"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        android:layout_marginEnd="@dimen/margin_small"
+        android:layout_marginTop="@dimen/margin_small"
+        android:background="@drawable/btn_style"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/gray"
+        android:text="@string/cancel_hint"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

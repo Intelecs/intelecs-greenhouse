@@ -252,7 +252,6 @@
             android:id="@+id/level_symbol"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_small"
             android:fontFamily="sans-serif"
             android:text="@string/level_symbol"
             android:textColor="@color/white"
@@ -521,7 +520,7 @@
     </androidx.cardview.widget.CardView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        app:fabSize="normal"
+        app:fabSize="auto"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/guideline9"
         app:rippleColor="@color/colorPrimary"
