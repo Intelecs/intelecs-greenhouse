@@ -521,12 +521,11 @@
     </androidx.cardview.widget.CardView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        app:fabSize="mini"
+        app:fabSize="normal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/guideline9"
         app:rippleColor="@color/colorPrimary"
         app:backgroundTint="@color/colorPrimary"
-        app:fabCustomSize="@dimen/icon_small"
         android:id="@+id/edit_threshold"
         android:tint="@color/white"
         android:src="@android:drawable/ic_menu_edit"
