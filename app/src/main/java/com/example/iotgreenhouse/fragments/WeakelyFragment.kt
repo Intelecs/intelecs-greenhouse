@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.iotgreenhouse.R
-import kotlinx.android.synthetic.main.weakely_fragment.*
 
 
 class WeakelyFragment: Fragment() {
@@ -26,6 +25,11 @@ class WeakelyFragment: Fragment() {
         val moistureFragment = fragmentManager!!.beginTransaction()
         moistureFragment.add(R.id.moist_frame, weeklyMoistureFragment)
         moistureFragment.commit()
+
+        val weeklyLevelFragment = WeeklyLevelFragment()
+        val levelFragment = fragmentManager!!.beginTransaction()
+        levelFragment.add(R.id.level_frame, weeklyLevelFragment)
+        levelFragment.commit()
 
         return view
 

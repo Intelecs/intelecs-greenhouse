@@ -18,26 +18,33 @@
         android:layout_height="0dp">
 
         <com.google.android.material.tabs.TabLayout
+            style="@style/ChipTabLayout"
             app:tabTextAppearance="@style/TabTextAppearance"
             app:layout_constraintTop_toTopOf="parent"
-            android:id="@+id/tabs_holder"
-            android:background="@color/gray"
             app:tabMode="scrollable"
             app:tabMaxWidth="0dp"
             app:tabGravity="fill"
-            app:tabIndicatorColor="@color/colorPrimary"
-            app:tabSelectedTextColor="@color/colorPrimary"
+            app:tabIndicatorGravity="center"
+            app:tabSelectedTextColor="@color/white"
             app:tabTextColor="@color/white"
+            app:tabPadding="@dimen/margin_small"
+            android:layout_gravity="center"
+            android:id="@+id/tabs_holder"
+            android:background="@color/gray"
             android:layout_width="match_parent"
             android:layout_height="0dp"/>
 
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/home_page_viewer"
+
+            android:isScrollContainer="true"
             android:layout_marginBottom="@dimen/margin_small"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/tabs_holder"
             />
+
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

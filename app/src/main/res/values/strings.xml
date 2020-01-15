@@ -1,20 +1,20 @@
 <resources>
     <string name="app_name">IoTGreenHouse</string>
 
-    <string name="device">DEVICES</string>
+    <string name="device">Devices</string>
 
-    <string name="home">HOME</string>
-    <string name="analytics">STATISTICS</string>
-    <string name="notifications">NOTIFICATIONS</string>
+    <string name="home">Home</string>
+    <string name="analytics">Statistics</string>
+    <string name="notifications">Notifications</string>
 
-    <string name="temperature">TEMPERATURE</string>
-    <string name="moisture">MOISTURE</string>
-    <string name="water_level">WATER LEVEL</string>
-    <string name="cam_coder">STREAM</string>
+    <string name="temperature">Temperature</string>
+    <string name="moisture">Moisture</string>
+    <string name="water_level">Water level</string>
+    <string name="cam_coder">Stream</string>
 
-    <string name="sprinkler">SPRINKLER</string>
-    <string name="water_pump">WATER PUMP</string>
-    <string name="fan">VENTILATION FAN</string>
+    <string name="sprinkler">Sprinkler</string>
+    <string name="water_pump">Water pump</string>
+    <string name="fan">Ventilation fan</string>
 
 
     <string name="sample_temp">24.6</string>
@@ -30,15 +30,15 @@
     <string name="level_symbol">Litres</string>
     <string name="water_label">Water level </string>
 
-    <string name="daily">DAILY</string>
-    <string name="monthly">MONTHLY</string>
-    <string name="yearly">YEARLY</string>
-    <string name="weakly">WEAKLY</string>
+    <string name="daily">Daily</string>
+    <string name="monthly">Monthly</string>
+    <string name="yearly">Yearly</string>
+    <string name="weakly">Weakly</string>
 
     <string name="temperature_input">Temperature</string>
     <string name="moisture_input">Moisture</string>
 
-    <string name="threshold_dialog_title">Edit System\'s Threshold values</string>
+    <string name="threshold_dialog_title">Edit system\'s threshold values</string>
     <string name="accept_hint">Save</string>
     <string name="cancel_hint">Cancel</string>
     <string name="back_hint">Back home</string>

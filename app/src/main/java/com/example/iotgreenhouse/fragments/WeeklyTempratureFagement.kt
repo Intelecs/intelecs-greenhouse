@@ -55,7 +55,7 @@ class WeeklyTempratureFagement: Fragment() {
         cartesian.interactivity().hoverMode(HoverMode.BY_X)
 
         cartesian.xAxis(0).title("Days")
-        cartesian.yAxis(0).title("Temperature (in Celsius)")
+        cartesian.yAxis(0).title("Temperature ")
         cartesian.background("#3E4043")
 
         view.chart.setProgressBar(view.progress)

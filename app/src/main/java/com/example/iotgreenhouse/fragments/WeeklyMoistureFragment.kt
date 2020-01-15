@@ -54,12 +54,12 @@ class WeeklyMoistureFragment : Fragment() {
         cartesian.interactivity().hoverMode(HoverMode.BY_X)
 
         cartesian.xAxis(0).title("Days")
-        cartesian.yAxis(0).title("Moisture (in %)")
+        cartesian.yAxis(0).title("Moist (%)")
         cartesian.background("#3E4043")
 
         view.chart.setProgressBar(view.progress)
         column.fill("#FF3C53")
-        column.stroke("#FF3C53")
+        column.stroke("#5B161A")
         view.chart.setBackgroundColor("#3E4043")
         view.chart.setZoomEnabled(false)
         view.chart.setChart(cartesian)
