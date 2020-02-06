@@ -7,11 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".activities.StreamActivity">
 
-    <android.opengl.GLSurfaceView
-        app:layout_constraintTop_toTopOf="parent"
-        android:id="@+id/stream_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
 
     <ImageView
         app:layout_constraintTop_toTopOf="parent"
