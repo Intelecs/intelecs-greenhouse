@@ -7,6 +7,10 @@
     android:background="@color/dark"
     tools:context=".activities.MainActivity">
 
+    <include
+        layout="@layout/main_toolbar"
+        android:id="@+id/toolbar"/>
+
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"
@@ -28,7 +32,6 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.2" />
-
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline6"
@@ -57,7 +60,6 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.90" />
-
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/temp_holder"

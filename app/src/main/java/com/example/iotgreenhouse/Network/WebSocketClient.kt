@@ -12,7 +12,7 @@ import okhttp3.Request
 import java.util.concurrent.TimeUnit
 
 object WebSocketClient  {
-    const val SOCKET_BASE_URL = "ws://192.168.43.66:8000/ws/sensors"
+    const val SOCKET_BASE_URL = "ws://10.100.2.75:8000/sensors"
     val backoffStrategy = ExponentialWithJitterBackoffStrategy(5000, 5000)
 
     val okHttpClient = OkHttpClient.Builder()

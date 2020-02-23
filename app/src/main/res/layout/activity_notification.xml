@@ -18,8 +18,7 @@
         android:layout_height="wrap_content"
         android:clipToPadding="false"
         android:paddingBottom="200dp"
-        android:scrollbars="vertical"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:scrollbars="vertical" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/not_found_holder"
