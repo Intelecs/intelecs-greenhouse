@@ -17,7 +17,7 @@
             android:layout_height="match_parent">
 
             <LinearLayout
-                android:id="@+id/connection_holder"
+                android:id="@+id/connection_refresh"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_small"
@@ -53,7 +53,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/connection_refresh"
+                android:id="@+id/connection_holder"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_small"
