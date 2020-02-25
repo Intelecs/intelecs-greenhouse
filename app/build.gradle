@@ -53,6 +53,7 @@ dependencies {
     implementation "com.github.tinder.scarlet:scarlet-stream-adapter-rxjava2:$scarlet_version"
     implementation "com.github.tinder.scarlet:scarlet-message-adapter-moshi:$scarlet_version"
     implementation "com.squareup.okhttp3:okhttp:4.4.0"
+    implementation 'com.google.code.gson:gson:2.8.6'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'

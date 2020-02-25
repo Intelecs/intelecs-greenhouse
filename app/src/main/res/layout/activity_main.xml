@@ -263,7 +263,7 @@
             app:layout_constraintTop_toTopOf="parent"/>
 
         <com.skydoves.progressview.ProgressView
-            android:id="@+id/progressView1"
+            android:id="@+id/progressView"
             android:layout_width="match_parent"
             android:layout_height="3dp"
             android:layout_marginStart="@dimen/margin_small"

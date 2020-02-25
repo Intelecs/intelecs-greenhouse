@@ -16,7 +16,10 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import com.example.iotgreenhouse.Network.WebSocketNetwork
 import com.example.iotgreenhouse.R
+import com.example.iotgreenhouse.model.SensorMessage
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.gson.Gson
+import com.tinder.scarlet.Message
 import com.tinder.scarlet.websocket.WebSocketEvent
 import io.reactivex.Observable
 import kotlinx.android.synthetic.main.activity_main.*
@@ -48,35 +51,74 @@ class MainActivity : AppCompatActivity() {
 
         webSocketListener.observe()
             .subscribe {
-                if (it is WebSocketEvent.OnConnectionOpened) {
-                    Log.d("WebSocket Open:", "$it")
-                    runOnUiThread {
-                        if (connection_refresh.isVisible) {
-                            connection_refresh.visibility = View.GONE
+                when (it) {
+                    is WebSocketEvent.OnConnectionOpened -> {
+                        Log.d("WebSocket Open:", "$it")
+                        runOnUiThread {
+                            if (connection_refresh.isVisible) {
+                                connection_refresh.visibility = View.GONE
+                            }
+                            connection_image.setColorFilter(applicationContext.resources.getColor(R.color.colorPrimary))
+                            connection_hint.text = getText(R.string.connected)
                         }
-                        connection_image.setColorFilter(applicationContext.resources.getColor(R.color.colorPrimary))
-                        connection_hint.text = getText(R.string.connected)
                     }
-                } else if (it is WebSocketEvent.OnMessageReceived) {
-                    Log.d("WebSocket Message:", "${it.message}")
-                } else if (it is WebSocketEvent.OnConnectionClosing) {
-                    Log.d("WebSocket Closing:", "$it")
-                    runOnUiThread {
-                        if (!connection_refresh.isVisible) {
-                            connection_refresh.visibility = View.VISIBLE
-                        }
-                        connection_image.setColorFilter(applicationContext.resources.getColor(R.color.ligh_gray))
-                        connection_hint.text = getText(R.string.not_connected)
-                    }
-                } else if (it is WebSocketEvent.OnConnectionClosed) {
-                    Log.d("WebSocket Closed:", "$it")
-                    runOnUiThread {
-                        if (!connection_refresh.isVisible) {
-                            connection_refresh.visibility = View.VISIBLE
-                        }
+                    is WebSocketEvent.OnMessageReceived -> {
+                        var message: Message? = null
+                        message = it.message
 
-                        connection_image.setColorFilter(applicationContext.resources.getColor(R.color.ligh_gray))
-                        connection_hint.text = getText(R.string.not_connected)
+                        val textData  = when(message) {
+                            is Message.Text -> message.value
+                            is Message.Bytes -> String(message.value)
+                        }
+                        val messageJson = Gson().fromJson(textData, SensorMessage::class.java)
+                        Log.d("WebSocket Message:", "Received:${messageJson.payload}, ${messageJson.topic}")
+                        when(messageJson.topic) {
+                            "IOT-GREENHOUSE/WATER_LEVEL" -> {
+                                runOnUiThread {
+                                    val progess: Float? = messageJson.payload.toFloatOrNull()
+                                    level_reading.text = messageJson.payload
+
+                                    if (progess != null) progressView.progress = progess
+                                }
+                            }
+
+                            "IOT-GREENHOUSE/TEMPERATURE" -> {
+                                runOnUiThread {
+                                    val progess: Float? = messageJson.payload.toFloatOrNull()
+                                    level_reading.text = messageJson.payload
+
+                                }
+                            }
+
+                            "IOT-GREENHOUSE/MOISTURE_LEVEL" -> {
+                                runOnUiThread {
+                                    val progess: Float? = messageJson.payload.toFloatOrNull()
+                                    level_reading.text = messageJson.payload
+
+                                }
+                            }
+                        }
+                    }
+                    is WebSocketEvent.OnConnectionClosing -> {
+                        Log.d("WebSocket Closing:", "$it")
+                        runOnUiThread {
+                            if (!connection_refresh.isVisible) {
+                                connection_refresh.visibility = View.VISIBLE
+                            }
+                            connection_image.setColorFilter(applicationContext.resources.getColor(R.color.ligh_gray))
+                            connection_hint.text = getText(R.string.not_connected)
+                        }
+                    }
+                    is WebSocketEvent.OnConnectionClosed -> {
+                        Log.d("WebSocket Closed:", "$it")
+                        runOnUiThread {
+                            if (!connection_refresh.isVisible) {
+                                connection_refresh.visibility = View.VISIBLE
+                            }
+
+                            connection_image.setColorFilter(applicationContext.resources.getColor(R.color.ligh_gray))
+                            connection_hint.text = getText(R.string.not_connected)
+                        }
                     }
                 }
             }
@@ -89,26 +131,66 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-//        val sendControls = SendControls("FAN", "ON")
-//
-//        WebSocketClient.iotService.observeNetwork().filter {
-//            it is WebSocketEvent.OnConnectionOpened
-//        }.subscribe{
-//
-//        }
-//
-//
-//        val subscribe = WebSocketClient.iotService.obeserveTemperature().subscribe {
-//            Log.d("Message", "Temperature ${it.reading} Date ${it.date_added}")
-//        }
-
         fan_switch.setOnCheckedChangeListener { buttonView, isChecked ->
-            if (isChecked) {
-                Log.d("Message", "${isChecked}")
-                webSocket!!.send("hello")
-//                WebSocketClient.iotService.observeNetwork().filter {
-//                    it is WebSocketEvent.OnConnectionOpened
-//                }.subscribe{ WebSocketClient.iotService.sendControl(sendControls)}
+            when(isChecked) {
+                true -> {
+                    Log.d("Message", "${isChecked}")
+                    val message = SensorMessage(
+                        "IOT-GREENHOUSE/OPEN_FAN",
+                        "ON"
+                    )
+                    webSocket!!.send(Gson().toJson(message))
+                }
+                else -> {
+                    Log.d("Message", "${isChecked}")
+                    val message = SensorMessage(
+                        "IOT-GREENHOUSE/OPEN_FAN",
+                        "OFF"
+                    )
+                    webSocket!!.send(Gson().toJson(message))
+                }
+            }
+        }
+
+        pump_switch.setOnCheckedChangeListener { buttonView, isChecked ->
+            when(isChecked) {
+                true -> {
+                    Log.d("Message", "${isChecked}")
+                    val message = SensorMessage(
+                        "IOT-GREENHOUSE/OPEN_PUMP",
+                        "ON"
+                    )
+                    webSocket!!.send(Gson().toJson(message))
+                }
+                else -> {
+                    Log.d("Message", "${isChecked}")
+                    val message = SensorMessage(
+                        "IOT-GREENHOUSE/OPEN_PUMP",
+                        "OFF"
+                    )
+                    webSocket!!.send(Gson().toJson(message))
+                }
+            }
+        }
+
+        sprinkler_switch.setOnCheckedChangeListener { buttonView, isChecked ->
+            when(isChecked) {
+                true -> {
+                    Log.d("Message", "${isChecked}")
+                    val message = SensorMessage(
+                        "IOT-GREENHOUSE/OPEN_SPRINKLER",
+                        "ON"
+                    )
+                    webSocket!!.send(Gson().toJson(message))
+                }
+                else -> {
+                    Log.d("Message", "${isChecked}")
+                    val message = SensorMessage(
+                        "IOT-GREENHOUSE/OPEN_SPRINKLER",
+                        "OFF"
+                    )
+                    webSocket!!.send(Gson().toJson(message))
+                }
             }
         }
 
