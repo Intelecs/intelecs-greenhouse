@@ -2,7 +2,9 @@
 <com.google.android.material.appbar.AppBarLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:background="@color/gray"
+    android:background="@color/mid_gray"
+    android:elevation="0dp"
+
     android:layout_height="?android:attr/actionBarSize"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
@@ -13,36 +15,18 @@
         android:background="@android:color/transparent"
         android:orientation="horizontal">
 
-        <LinearLayout
-            android:id="@+id/left_arrow"
-            android:clickable="true"
-            android:focusable="true"
-            android:layout_marginStart="@dimen/margin_small"
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:contentDescription="@string/back_hint"
-                android:tint="@color/colorPrimary"
-                android:layout_width="@dimen/icon_small"
-                android:layout_height="@dimen/icon_small"
-                android:src="@drawable/ic_left_arrow"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-light"
-                android:textStyle="normal"
-                android:textAllCaps="false"
-                android:text="@string/back_hint"
-                android:textColor="@color/white"
-                android:layout_gravity="center"
-                android:textSize="@dimen/font_big"
-                android:layout_marginStart="@dimen/margin_small"
-                android:layout_marginEnd="@dimen/margin_small"/>
-
-        </LinearLayout>
+            android:fontFamily="sans-serif-light"
+            android:textStyle="normal"
+            android:textAllCaps="false"
+            android:text="@string/analysis"
+            android:textColor="@color/white"
+            android:layout_gravity="center"
+            android:textSize="@dimen/font_big"
+            android:layout_marginStart="@dimen/margin_small"
+            android:layout_marginEnd="@dimen/margin_small"/>
 
     </androidx.appcompat.widget.Toolbar>
 

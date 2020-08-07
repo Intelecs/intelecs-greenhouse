@@ -5,29 +5,17 @@
     <item
         android:id="@+id/home"
         android:icon="@drawable/ic_home"
-        android:title="@string/home"
-        app:cnb_iconTintMode="src_in"
-        app:cnb_textColor="@color/white"
-        app:cnb_backgroundColor="@color/colorPrimary"
-        app:cnb_iconColor="@color/white"/>
+        android:title="@string/home"/>
     <item
         android:id="@+id/analytics"
         android:title="@string/analytics"
-        android:icon="@drawable/ic_analytics"
-        app:cnb_iconTintMode="src_in"
-        app:cnb_textColor="@color/white"
-        app:cnb_backgroundColor="@color/colorPrimary"
-        app:cnb_iconColor="@color/white"/>
+        android:icon="@drawable/ic_analytics"/>
 
 
     <item
         android:id="@+id/notifications"
         android:icon="@drawable/ic_bell"
-        android:title="@string/notifications"
-        app:cnb_iconTintMode="src_in"
-        app:cnb_textColor="@color/white"
-        app:cnb_backgroundColor="@color/colorPrimary"
-        app:cnb_iconColor="@color/white"/>
+        android:title="@string/notifications"/>
 
 
 </menu>

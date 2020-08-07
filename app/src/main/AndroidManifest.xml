@@ -24,13 +24,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".activities.StreamActivity"></activity>
-        <activity android:name=".activities.NotificationActivity" />
+        <activity android:name="activities.StreamActivity"></activity>
+        <activity android:name="activities.NotificationActivity" />
         <activity
-            android:name=".activities.AnalyticsActivity"
+            android:name="activities.AnalyticsActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".activities.MainActivity"
+            android:name="activities.MainActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

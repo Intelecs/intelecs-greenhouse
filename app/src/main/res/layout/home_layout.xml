@@ -1,0 +1,528 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:background="@color/dark"
+    android:layout_height="match_parent">
+
+    <include
+        layout="@layout/main_toolbar"
+        android:id="@+id/toolbar"/>
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.2" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.3" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.4" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.65" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.90" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/temp_holder"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/dark"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guideline4"
+        app:layout_constraintBottom_toTopOf="@id/guideline5">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".5" />
+
+        <TextView
+            android:id="@+id/sensor_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_small"
+            android:fontFamily="sans-serif-light"
+            android:text="@string/temperature"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/font_big"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/temp_icon"
+            android:layout_width="@dimen/icon_small"
+            android:layout_height="@dimen/icon_small"
+            android:layout_marginStart="@dimen/margin_small"
+            android:src="@drawable/ic_themometer"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sensor_hint"
+            app:tint="@color/ligh_gray" />
+
+        <TextView
+            android:id="@+id/temp_reading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_small"
+            android:fontFamily="sans-serif-black"
+            android:text="@string/sample_temp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_xbig"
+            app:layout_constraintStart_toEndOf="@id/guideline"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/temp_symbol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:text="@string/cel_symbol"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_big"
+            app:layout_constraintStart_toEndOf="@id/temp_reading"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/moist_holder"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/gray"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/guideline6"
+        app:layout_constraintTop_toBottomOf="@id/guideline5">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".5" />
+
+
+        <TextView
+            android:id="@+id/moist_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_small"
+            android:fontFamily="sans-serif-light"
+            android:text="@string/moisture"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/font_big"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/moist_icon"
+            android:layout_width="@dimen/icon_small"
+            android:layout_height="@dimen/icon_small"
+            android:layout_marginStart="@dimen/margin_small"
+            android:src="@drawable/ic_raindrops"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/moist_hint"
+            app:tint="@color/ligh_gray" />
+
+        <TextView
+            android:id="@+id/moist_reading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_small"
+            android:fontFamily="sans-serif-black"
+            android:text="@string/sample_moist"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_xbig"
+            app:layout_constraintStart_toEndOf="@id/guideline1"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+        <TextView
+            android:id="@+id/moist_symbol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:text="@string/moist_symbol"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_big"
+            app:layout_constraintStart_toEndOf="@id/moist_reading"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/level_holder"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/dark"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/guideline7"
+        app:layout_constraintTop_toBottomOf="@+id/guideline6">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".5" />
+
+
+        <TextView
+            android:id="@+id/level_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_small"
+            android:fontFamily="sans-serif-light"
+            android:text="@string/water_level"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/font_big"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/level_icon"
+            android:layout_width="@dimen/icon_small"
+            android:layout_height="@dimen/icon_small"
+            android:layout_marginStart="@dimen/margin_small"
+            android:src="@drawable/ic_pitcher"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/level_hint"
+            app:tint="@color/ligh_gray" />
+
+        <TextView
+            android:id="@+id/level_reading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_small"
+            android:fontFamily="sans-serif-black"
+            android:text="@string/sample_level"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_xbig"
+            app:layout_constraintStart_toEndOf="@id/guideline2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+        <TextView
+            android:id="@+id/level_symbol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:text="@string/level_symbol"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_big"
+            app:layout_constraintStart_toEndOf="@id/level_reading"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <com.skydoves.progressview.ProgressView
+            android:id="@+id/progressView"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:layout_marginStart="@dimen/margin_small"
+            android:layout_marginEnd="@dimen/margin_small"
+            android:layout_marginTop="2dp"
+            app:layout_constraintTop_toBottomOf="@id/level_icon"
+            app:progressView_autoAnimate="true"
+            app:progressView_colorBackground="@color/ligh_gray"
+            app:progressView_colorProgress="@color/colorPrimary"
+            app:progressView_max="100"
+            app:progressView_min="0"
+            app:progressView_padding="4dp"
+            app:progressView_progress="0"
+            app:progressView_radius="12dp" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.cardview.widget.CardView
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/guideline3"
+        app:layout_constraintTop_toBottomOf="@id/guideline7"
+        app:layout_constraintBottom_toTopOf="@+id/guideline8"
+        app:cardBackgroundColor="@color/gray"
+        app:cardCornerRadius="@dimen/card_radius"
+        android:layout_margin="@dimen/margin_small"
+        android:id="@+id/fan_card"
+        android:layout_width="0dp"
+        android:layout_height="0dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Switch
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:switchTextAppearance="@style/SwitchTextAppearance"
+                android:theme="@style/Switch_style"
+                android:showText="true"
+                android:typeface="monospace"
+                android:textSize="@dimen/font_small"
+                android:thumbTint="@color/mid_gray"
+                android:textOn="@string/text_on"
+                android:id="@+id/fan_switch"
+                android:textOff="@string/text_off"
+                android:layout_width="@dimen/switch_width"
+                android:trackTintMode="add"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                app:layout_constraintTop_toBottomOf="@+id/fan_switch"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_margin="@dimen/margin_small"
+                android:src="@drawable/ic_fan"
+                android:id="@+id/fan_icon"
+                android:layout_width="@dimen/icon_big"
+                android:layout_height="@dimen/icon_big"
+                app:tint="@color/ligh_gray" />
+
+            <TextView
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginTop="@dimen/margin_big"
+                android:layout_width="match_parent"
+                android:text="@string/fan"
+                android:padding="@dimen/padding_normal"
+                android:textSize="@dimen/font_normal"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:background="@color/ligh_gray"
+                android:layout_height="wrap_content" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/guideline3"
+        app:layout_constraintTop_toBottomOf="@id/guideline7"
+        app:layout_constraintBottom_toTopOf="@+id/guideline8"
+        app:cardBackgroundColor="@color/gray"
+        app:cardCornerRadius="@dimen/card_radius"
+        android:layout_margin="@dimen/margin_small"
+        android:id="@+id/pump_card"
+        android:layout_width="0dp"
+        android:layout_height="0dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Switch
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:switchTextAppearance="@style/SwitchTextAppearance"
+                android:theme="@style/Switch_style"
+                android:showText="true"
+                android:typeface="monospace"
+                android:textSize="@dimen/font_small"
+                android:thumbTint="@color/mid_gray"
+                android:textOn="@string/text_on"
+                android:id="@+id/pump_switch"
+                android:textOff="@string/text_off"
+                android:layout_width="@dimen/switch_width"
+                android:trackTintMode="add"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                app:layout_constraintTop_toBottomOf="@+id/pump_switch"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_margin="@dimen/margin_small"
+                android:src="@drawable/ic_waterpump"
+                android:id="@+id/pump_icon"
+                android:layout_width="@dimen/icon_big"
+                android:layout_height="@dimen/icon_big"
+                app:tint="@color/ligh_gray"
+                android:contentDescription="@string/todo" />
+
+            <TextView
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginTop="@dimen/margin_big"
+                android:layout_width="match_parent"
+                android:text="@string/water_pump"
+                android:padding="@dimen/padding_normal"
+                android:textSize="@dimen/font_normal"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:background="@color/ligh_gray"
+                android:layout_height="wrap_content" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/guideline3"
+        app:layout_constraintTop_toBottomOf="@id/guideline8"
+        app:layout_constraintBottom_toTopOf="@+id/guideline9"
+        app:cardBackgroundColor="@color/gray"
+        app:cardCornerRadius="@dimen/card_radius"
+        android:layout_margin="@dimen/margin_small"
+        android:id="@+id/sprinkler_card"
+        android:layout_width="0dp"
+        android:layout_height="0dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Switch
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:switchTextAppearance="@style/SwitchTextAppearance"
+                android:theme="@style/Switch_style"
+                android:showText="true"
+                android:typeface="monospace"
+                android:textSize="@dimen/font_small"
+                android:thumbTint="@color/mid_gray"
+                android:textOn="@string/text_on"
+                android:id="@+id/sprinkler_switch"
+                android:textOff="@string/text_off"
+                android:layout_width="@dimen/switch_width"
+                android:trackTintMode="add"
+                android:layout_height="wrap_content" tools:targetApi="m"/>
+
+            <ImageView
+                app:layout_constraintTop_toBottomOf="@+id/sprinkler_switch"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_margin="@dimen/margin_small"
+                android:src="@drawable/ic_sprinkler"
+                android:id="@+id/sprinkler_icon"
+                android:layout_width="@dimen/icon_big"
+                android:layout_height="@dimen/icon_big"
+                app:tint="@color/ligh_gray"
+                android:contentDescription="@string/todo" />
+
+            <TextView
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginTop="@dimen/margin_big"
+                android:layout_width="match_parent"
+                android:text="@string/sprinkler"
+                android:padding="@dimen/padding_normal"
+                android:textSize="@dimen/font_normal"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:background="@color/ligh_gray"
+                android:layout_height="wrap_content" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/guideline3"
+        app:layout_constraintTop_toBottomOf="@id/guideline8"
+        app:layout_constraintBottom_toTopOf="@+id/guideline9"
+        app:cardBackgroundColor="@color/gray"
+        app:cardCornerRadius="@dimen/card_radius"
+        android:layout_margin="@dimen/margin_small"
+        android:id="@+id/stream_card"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_width="0dp"
+        android:layout_height="0dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Switch
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:visibility="invisible"
+                android:switchTextAppearance="@style/SwitchTextAppearance"
+                android:theme="@style/Switch_style"
+                android:showText="true"
+                android:typeface="monospace"
+                android:textSize="@dimen/font_small"
+                android:thumbTint="@color/mid_gray"
+                android:textOn="@string/text_on"
+                android:id="@+id/stream_switch"
+                android:textOff="@string/text_off"
+                android:layout_width="@dimen/switch_width"
+                android:trackTintMode="add"
+                android:layout_height="wrap_content" tools:targetApi="m" />
+
+            <ImageView
+                app:layout_constraintTop_toBottomOf="@+id/stream_switch"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_margin="@dimen/margin_small"
+                android:src="@drawable/ic_frame"
+                android:id="@+id/stream_icon"
+                android:layout_width="@dimen/icon_big"
+                android:layout_height="@dimen/icon_big"
+                app:tint="@color/ligh_gray"
+                android:contentDescription="@string/todo" />
+
+            <TextView
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginTop="@dimen/margin_big"
+                android:layout_width="match_parent"
+                android:text="@string/cam_coder"
+                android:padding="@dimen/padding_normal"
+                android:textSize="@dimen/font_normal"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:background="@color/ligh_gray"
+                android:layout_height="wrap_content" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
