@@ -3,7 +3,6 @@ package adapters.menu
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import fragments.menu.AnalyticsFragment
 import fragments.menu.HardwareFragment
 import fragments.menu.HomeFragment
 import fragments.menu.NotificationsFragment
@@ -16,9 +15,8 @@ class MenuAdapter(
     override fun getItem(position: Int): Fragment {
         return when (position) {
             0 -> HomeFragment()
-            1 -> AnalyticsFragment()
-            2 -> NotificationsFragment()
-            3 -> HardwareFragment()
+            1 -> NotificationsFragment()
+            2 -> HardwareFragment()
             else -> HomeFragment()
         }
     }

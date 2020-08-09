@@ -70,6 +70,7 @@
     <string name="refresh">Press to refresh</string>
     <string name="todo">TODO</string>
     <string name="analysis">ANALYSIS</string>
+    <string name="setup">DEVICE PARAMETERS</string>
     <string name="select_date">Select Relative Date</string>
     <string name="tank_level">Tank Level</string>
 </resources>

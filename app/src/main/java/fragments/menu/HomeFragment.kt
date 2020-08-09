@@ -288,15 +288,15 @@ class HomeFragment : Fragment() {
                                                             if (parsedMessage != null) {
                                                                 if (parsedMessage.sensor == "temperature") {
                                                                     requireActivity().runOnUiThread {
-                                                                        temp_reading.text =
+                                                                        temp_reading?.text =
                                                                             parsedMessage.value.toString()
                                                                     }
                                                                 }
-                                                                if (parsedMessage.sensor == "level") {
+                                                                if (parsedMessage.sensor == "utrasonic") {
                                                                     requireActivity().runOnUiThread {
-                                                                        level_reading.text =
+                                                                        level_reading?.text =
                                                                             parsedMessage.value.toString()
-                                                                        progressView.progress =
+                                                                        progressView?.progress =
                                                                             parsedMessage.value
                                                                     }
                                                                 }
@@ -304,7 +304,7 @@ class HomeFragment : Fragment() {
 
                                                                 if (parsedMessage.sensor == "moisture") {
                                                                     requireActivity().runOnUiThread {
-                                                                        moist_reading.text =
+                                                                        moist_reading?.text =
                                                                             parsedMessage.value.toString()
                                                                     }
                                                                 }

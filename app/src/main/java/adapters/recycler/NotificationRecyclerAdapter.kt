@@ -8,15 +8,15 @@ import model.NotifcationsModel
 import kotlinx.android.synthetic.main.notification_item_list.view.*
 import utils.inflate
 
-class NotificationRecyclerAdapter (private val notifcations: MutableList<NotifcationsModel>) :
+class NotificationRecyclerAdapter (private val notifications: MutableList<NotifcationsModel>) :
     RecyclerView.Adapter<NotificationRecyclerAdapter.ServiceHolder> () {
 
     override fun getItemCount(): Int {
-        return notifcations.size
+        return notifications.size
     }
 
     override fun onBindViewHolder(holder: ServiceHolder, position: Int) {
-        holder.bindData(notifcations[position])
+        holder.bindData(notifications[position])
     }
 
     override fun onCreateViewHolder(

@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.google.gms.google-services'
 
 
 android {
@@ -49,7 +50,7 @@ dependencies {
     implementation 'com.etebarian:meow-bottom-navigation:1.2.0'
     implementation 'com.google.android.material:material:1.2.0'
     implementation 'com.amitshekhar.android:android-networking:1.0.2'
-    implementation ('com.amazonaws:aws-android-sdk-iot:2.16.13'){
+    implementation('com.amazonaws:aws-android-sdk-iot:2.16.13') {
         exclude group: 'org.eclipse.paho', module: 'org.eclipse.paho.client.mqttv3'
     }
     implementation 'com.beust:klaxon:5.0.1'
@@ -58,6 +59,7 @@ dependencies {
     implementation 'com.airbnb.android:lottie:3.3.0'
     implementation "com.squareup.okhttp3:okhttp:4.4.0"
     implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'com.google.firebase:firebase-messaging:20.1.4'
     testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'

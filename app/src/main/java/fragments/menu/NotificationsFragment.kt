@@ -15,4 +15,9 @@ class NotificationsFragment : Fragment() {
     ): View {
         return  inflater.inflate(R.layout.notifications_layout, container, false)
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+    }
 }

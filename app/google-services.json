@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "241944374310",
+    "firebase_url": "https://intelecs-greenhouse.firebaseio.com",
+    "project_id": "intelecs-greenhouse",
+    "storage_bucket": "intelecs-greenhouse.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:241944374310:android:04acb917efc5e87652cae7",
+        "android_client_info": {
+          "package_name": "com.example.iotgreenhouse"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "241944374310-f8fbo43c5nptvgsj6l4l4fjr7hobd5rv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAroaAF-mqmjCkxAaZYcfaNC--SWBth6kA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "241944374310-f8fbo43c5nptvgsj6l4l4fjr7hobd5rv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
