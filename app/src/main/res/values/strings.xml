@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">IoTGreenHouse</string>
+    <string name="app_name">Intelligent Green House</string>
 
     <string name="device">Devices</string>
 
@@ -27,7 +27,7 @@
     <string name="text_off">OFF</string>
 
     <string name="sample_level">--</string>
-    <string name="level_symbol">CM</string>
+    <string name="level_symbol"> L</string>
     <string name="water_label">Water level </string>
 
     <string name="daily">Daily</string>

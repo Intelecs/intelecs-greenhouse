@@ -21,4 +21,6 @@
     <dimen name="card_radius">4dp</dimen>
     <dimen name="padding_normal">4dp</dimen>
 
+    <dimen name="imageSize">100dp</dimen>
+
 </resources>

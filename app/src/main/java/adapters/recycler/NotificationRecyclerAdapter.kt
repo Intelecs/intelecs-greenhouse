@@ -2,10 +2,14 @@ package adapters.recycler
 
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.recyclerview.widget.RecyclerView
+import com.androidnetworking.AndroidNetworking
 import com.example.iotgreenhouse.R
 import model.NotifcationsModel
 import kotlinx.android.synthetic.main.notification_item_list.view.*
+import okhttp3.OkHttpClient
 import utils.inflate
 
 class NotificationRecyclerAdapter (private val notifications: MutableList<NotifcationsModel>) :
@@ -32,7 +36,7 @@ class NotificationRecyclerAdapter (private val notifications: MutableList<Notifc
     class ServiceHolder(view: View) : RecyclerView.ViewHolder(view), View.OnClickListener {
         val title = view.noty_title
         val message = view.noty_msg
-        val btn_read = view.read_btn
+        var id: String = ""
 
 
             init {
@@ -43,12 +47,12 @@ class NotificationRecyclerAdapter (private val notifications: MutableList<Notifc
         }
 
         fun bindData(notification: NotifcationsModel) {
-            title.text = notification.title
-            message.text = notification.message
+           val okHttpClient = OkHttpClient().newBuilder()
+                .build()
 
-            if(notification.isRead) {
-                btn_read.visibility = View.GONE
-            }
+            title.text = "${notification.sensor} Sensor"
+            message.text = "Out of threshold value of ${notification.value} reached."
+            id = notification.id
         }
     }
 }

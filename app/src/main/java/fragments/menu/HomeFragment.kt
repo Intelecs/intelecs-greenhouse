@@ -15,27 +15,20 @@ import com.amazonaws.mobileconnectors.iot.AWSIotMqttManager
 import com.amazonaws.mobileconnectors.iot.AWSIotMqttNewMessageCallback
 import com.amazonaws.mobileconnectors.iot.AWSIotMqttQos
 import com.amazonaws.regions.Regions
-import com.amazonaws.services.iot.AWSIot
 import com.androidnetworking.AndroidNetworking
 import com.androidnetworking.common.Priority
 import com.androidnetworking.error.ANError
-import com.androidnetworking.interfaces.JSONArrayRequestListener
 import com.androidnetworking.interfaces.JSONObjectRequestListener
 import com.androidnetworking.interfaces.StringRequestListener
 import com.beust.klaxon.Klaxon
 import com.example.iotgreenhouse.R
 import kotlinx.android.synthetic.main.home_layout.*
-import kotlinx.android.synthetic.main.home_layout.view.*
 import kotlinx.android.synthetic.main.main_toolbar.*
 import model.Payload
 import okhttp3.OkHttpClient
 import org.jetbrains.anko.doAsync
-import org.jetbrains.anko.uiThread
-import org.json.JSONArray
 import org.json.JSONObject
 import java.lang.Exception
-import java.net.URL
-import java.nio.charset.Charset
 import java.util.*
 
 class HomeFragment : Fragment() {
@@ -199,12 +192,12 @@ class HomeFragment : Fragment() {
                         Log.d("Shadow", "$result")
                         if (result == 1) {
                             requireActivity().runOnUiThread {
-                                pump_switch.isChecked = true
+                                pump_switch?.isChecked = true
                             }
                         }
                         else {
                             requireActivity().runOnUiThread {
-                                pump_switch.isChecked = false
+                                pump_switch?.isChecked = false
                             }
                         }
                     }
@@ -251,73 +244,63 @@ class HomeFragment : Fragment() {
                     requireActivity().runOnUiThread {
                         when (status) {
                             AWSIotMqttClientStatusCallback.AWSIotMqttClientStatus.Connected -> {
-                                connection_image.setColorFilter(
+                                connection_image?.setColorFilter(
                                     ContextCompat.getColor(
                                         requireContext(),
                                         R.color.red
                                     )
                                 )
-                                connection_hint.text = "Connected"
-                                refresh.clearAnimation()
-                                connection_refresh.visibility = View.GONE
+                                connection_hint?.text = "Connected"
+                                refresh?.clearAnimation()
+                                connection_refresh?.visibility = View.GONE
                                 doAsync {
                                     try {
                                         for (topic in topics) {
-                                            mqttManager.publishString(
-                                                "OPEN",
-                                                "\$aws/things/GreenHouseMeter/shadow/name/FAN",
-                                                AWSIotMqttQos.QOS0
-                                            )
                                             mqttManager.subscribeToTopic(
                                                 topic,
-                                                AWSIotMqttQos.QOS0,
-                                                object : AWSIotMqttNewMessageCallback {
-                                                    override fun onMessageArrived(
-                                                        topic: String?,
-                                                        data: ByteArray?
-                                                    ) {
-                                                        try {
-                                                            val message =
-                                                                String(data!!, Charsets.UTF_8)
-                                                            val parsedMessage =
-                                                                Klaxon().parse<Payload>(
-                                                                    """
-                                                                $message
-                                                            """.trimIndent()
-                                                                )
-                                                            if (parsedMessage != null) {
-                                                                if (parsedMessage.sensor == "temperature") {
-                                                                    requireActivity().runOnUiThread {
-                                                                        temp_reading?.text =
-                                                                            parsedMessage.value.toString()
-                                                                    }
-                                                                }
-                                                                if (parsedMessage.sensor == "utrasonic") {
-                                                                    requireActivity().runOnUiThread {
-                                                                        level_reading?.text =
-                                                                            parsedMessage.value.toString()
-                                                                        progressView?.progress =
-                                                                            parsedMessage.value
-                                                                    }
-                                                                }
-
-
-                                                                if (parsedMessage.sensor == "moisture") {
-                                                                    requireActivity().runOnUiThread {
-                                                                        moist_reading?.text =
-                                                                            parsedMessage.value.toString()
-                                                                    }
-                                                                }
+                                                AWSIotMqttQos.QOS0
+                                            ) { topic, data ->
+                                                try {
+                                                    val message =
+                                                        String(data!!, Charsets.UTF_8)
+                                                    val parsedMessage =
+                                                        Klaxon().parse<Payload>(
+                                                            """
+                                                                                                                                                    $message
+                                                                                                                                                """.trimIndent()
+                                                        )
+                                                    if (parsedMessage != null) {
+                                                        if (parsedMessage.sensor == "temperature") {
+                                                            requireActivity().runOnUiThread {
+                                                                temp_reading?.text =
+                                                                    parsedMessage.value.toString()
                                                             }
-                                                            Log.d(
-                                                                "IoT Core",
-                                                                "$topic, $parsedMessage"
-                                                            )
-                                                        } catch (e: Exception) {
-                                                            Log.d("IoT Core", "$e")
+                                                        }
+                                                        if (parsedMessage.sensor == "utrasonic") {
+                                                            requireActivity().runOnUiThread {
+                                                                level_reading?.text =
+                                                                    parsedMessage.value.toString()
+                                                                progressView?.progress =
+                                                                    parsedMessage.value
+                                                            }
+                                                        }
+
+
+                                                        if (parsedMessage.sensor == "moisture") {
+                                                            requireActivity().runOnUiThread {
+                                                                moist_reading?.text =
+                                                                    parsedMessage.value.toString()
+                                                            }
                                                         }
                                                     }
-                                                })
+                                                    Log.d(
+                                                        "IoT Core",
+                                                        "$topic, $parsedMessage"
+                                                    )
+                                                } catch (e: Exception) {
+                                                    Log.d("IoT Core", "$e")
+                                                }
+                                            }
                                         }
                                     } catch (e: Exception) {
                                         Log.d("IoT Core", "${e}")
@@ -325,33 +308,33 @@ class HomeFragment : Fragment() {
                                 }
                             }
                             AWSIotMqttClientStatusCallback.AWSIotMqttClientStatus.Reconnecting -> {
-                                connection_refresh.visibility = View.VISIBLE
+                                connection_refresh?.visibility = View.VISIBLE
 
-                                refresh_hint.text = "Re connecting"
+                                refresh_hint?.text = "Re connecting"
                                 val refreshAnimation = AnimationUtils.loadAnimation(
                                     requireContext(),
                                     R.anim.refresh_rotate
                                 )
-                                refresh.startAnimation(refreshAnimation)
-                                connection_image.setColorFilter(
+                                refresh?.startAnimation(refreshAnimation)
+                                connection_image?.setColorFilter(
                                     ContextCompat.getColor(
                                         requireContext(),
                                         R.color.ligh_gray
                                     )
                                 )
-                                connection_hint.text = "Not Connected"
+                                connection_hint?.text = "Not Connected"
 
                             }
                             AWSIotMqttClientStatusCallback.AWSIotMqttClientStatus.Connecting -> {
-                                connection_image.setColorFilter(
+                                connection_image?.setColorFilter(
                                     ContextCompat.getColor(
                                         requireContext(),
                                         R.color.ligh_gray
                                     )
                                 )
-                                connection_hint.text = "Not Connected"
-                                connection_refresh.visibility = View.VISIBLE
-                                refresh_hint.text = "Connecting"
+                                connection_hint?.text = "Not Connected"
+                                connection_refresh?.visibility = View.VISIBLE
+                                refresh_hint?.text = "Connecting"
 
                                 val refreshAnimation = AnimationUtils.loadAnimation(
                                     requireContext(),
@@ -360,13 +343,13 @@ class HomeFragment : Fragment() {
                                 refresh.startAnimation(refreshAnimation)
                             }
                             AWSIotMqttClientStatusCallback.AWSIotMqttClientStatus.ConnectionLost -> {
-                                connection_image.setColorFilter(
+                                connection_image?.setColorFilter(
                                     ContextCompat.getColor(
                                         requireContext(),
                                         R.color.ligh_gray
                                     )
                                 )
-                                connection_hint.text = "Connection Lost"
+                                connection_hint?.text = "Connection Lost"
                             }
                         }
                     }

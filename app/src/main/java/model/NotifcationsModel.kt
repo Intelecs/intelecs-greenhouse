@@ -1,8 +1,8 @@
 package model
 
 data class NotifcationsModel(
-    var title: String,
-    var date: String,
-    var message: String,
+    var sensor: String,
+    var value: Float,
+    var id: String,
     var isRead: Boolean
 )

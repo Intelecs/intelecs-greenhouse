@@ -8,6 +8,7 @@ import androidx.viewpager.widget.ViewPager
 import com.androidnetworking.AndroidNetworking
 import com.androidnetworking.common.Priority
 import com.androidnetworking.error.ANError
+import com.androidnetworking.interfaces.JSONArrayRequestListener
 import com.androidnetworking.interfaces.JSONObjectRequestListener
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation
 import com.example.iotgreenhouse.R
@@ -15,6 +16,7 @@ import com.google.firebase.iid.FirebaseInstanceId
 import kotlinx.android.synthetic.main.activity_main.*
 import okhttp3.OkHttpClient
 import org.jetbrains.anko.doAsync
+import org.json.JSONArray
 import org.json.JSONObject
 
 
@@ -50,8 +52,27 @@ class MainActivity : AppCompatActivity() {
         bottomBar.add(MeowBottomNavigation.Model(0, R.drawable.ic_home))
         bottomBar.add(MeowBottomNavigation.Model(1, R.drawable.ic_bell))
         bottomBar.add(MeowBottomNavigation.Model(2, R.drawable.ic_hardware))
-        bottomBar.setCount(1, "0")
+
         bottomBar.show(0)
+
+        doAsync {
+            val BASE_URL = "https://4jk6950pz3.execute-api.eu-west-1.amazonaws.com/greenHouse/notification/get-all"
+            AndroidNetworking.get(BASE_URL).build()
+                .getAsJSONArray(object : JSONArrayRequestListener {
+                    override fun onResponse(response: JSONArray?) {
+                        Log.d("Messages Lit", "${response!!.length()}")
+                        if(response.length() > 0) {
+                            runOnUiThread {
+                                bottomBar.setCount(1, response.length().toString())
+                            }
+                        }
+                    }
+
+                    override fun onError(anError: ANError?) {
+                        Log.d("Shadow", "$anError")
+                    }
+                })
+        }
 
         val menuAdapter = MenuAdapter(
             supportFragmentManager, 3
