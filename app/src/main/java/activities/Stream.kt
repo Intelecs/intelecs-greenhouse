@@ -54,7 +54,6 @@ class Stream : AppCompatActivity() {
         })
 
         doAsync {
-            var streamURL = ""
             AndroidNetworking.get("https://4jk6950pz3.execute-api.eu-west-1.amazonaws.com/greenHouse/get-stream-url")
                 .build().getAsJSONObject(object: JSONObjectRequestListener {
 
@@ -64,7 +63,8 @@ class Stream : AppCompatActivity() {
                             $response
                         """.trimIndent()
                         )
-                        streamURL = parsedMessage!!.body
+                        val streamURL = parsedMessage!!.body
+                        Log.d("Stream", streamURL)
                         runOnUiThread {
                             initializePlayer(streamURL)
                         }
