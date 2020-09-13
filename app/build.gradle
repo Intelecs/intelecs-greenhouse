@@ -55,6 +55,8 @@ dependencies {
         exclude group: 'org.eclipse.paho', module: 'org.eclipse.paho.client.mqttv3'
     }
     implementation 'com.beust:klaxon:5.0.1'
+    implementation 'com.google.android.exoplayer:exoplayer:2.11.3'
+    implementation 'com.github.norulab:android-exoplayer-fullscreen:1.1.7'
     implementation "org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.2.4"
     implementation 'com.amazonaws:aws-android-sdk-mobile-client:2.16.13'
     implementation 'com.airbnb.android:lottie:3.3.0'

@@ -23,6 +23,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name="activities.Stream"></activity>
         <activity
             android:name="activities.SplashScreen"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
@@ -34,7 +35,7 @@
         </activity>
         <activity
             android:name="activities.MainActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
         <service
             android:name="services.GreenHouseNotificationService"

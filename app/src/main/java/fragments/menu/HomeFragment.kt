@@ -1,6 +1,8 @@
 package fragments.menu
 
+import activities.Stream
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -27,6 +29,7 @@ import kotlinx.android.synthetic.main.main_toolbar.*
 import model.Payload
 import okhttp3.OkHttpClient
 import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.json.JSONObject
 import java.lang.Exception
 import java.util.*
@@ -68,6 +71,11 @@ class HomeFragment : Fragment() {
         mqttManager = AWSIotMqttManager(clientID, ENDPOINT)
         connectMqtt(credentialProvider)
         checkState()
+
+        stream_card.onClick {
+            val intent = Intent(requireActivity(), Stream::class.java)
+            startActivity(intent)
+        }
 
         fan_switch.setOnCheckedChangeListener { buttonView, isChecked ->
             doAsync {
