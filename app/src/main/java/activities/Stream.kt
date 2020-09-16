@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.webkit.WebViewClient
 import com.androidnetworking.AndroidNetworking
 import com.androidnetworking.error.ANError
 import com.androidnetworking.interfaces.JSONObjectRequestListener
@@ -66,7 +67,14 @@ class Stream : AppCompatActivity() {
                         val streamURL = parsedMessage!!.body
                         Log.d("Stream", streamURL)
                         runOnUiThread {
+                            videoBrowser.webViewClient = WebViewClient()
+
+                            videoBrowser.loadUrl(streamURL)
+                            val webSettings = videoBrowser.settings
+                            webSettings.javaScriptEnabled = true
                             initializePlayer(streamURL)
+
+
                         }
 
                     }
